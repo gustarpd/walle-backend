@@ -1,14 +1,19 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
+import { compareSync } from 'bcrypt'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 export async function FindUser(username: string, password: string) {
   const user = await prisma.user.findFirst({
     where: {
-      username,
-      password,
+      OR: [{ password }, { username }],
     },
-  });
+  })
 
-  return { id: user?.id, username: user?.username };
+
+  const comparePassword = compareSync(password, user?.password as string)
+
+
+  return { comparePassword, user: user?.username }
 }
+
