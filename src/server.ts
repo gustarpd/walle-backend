@@ -15,7 +15,9 @@ dotenv.config();
 
 const server = express();
 
-server.use(cors());
+server.use(cors({
+  origin: '*'
+}))
 
 server.use(express.json());
 
@@ -37,4 +39,4 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
 };
 server.use(errorHandler);
 
-server.listen(process.env.PORT);
+server.listen(4000);

@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
 import { hash } from "bcrypt";
 
 const prisma = new PrismaClient();
@@ -27,7 +27,7 @@ export async function SignUpUser(username: string, password: string) {
   }
 
   if (UserExists) {
-    return { error: "usuario já existe tente novamente" };
+    return { error: "usuário já existe tente novamente" };
   }
 
   let regex = /(?=.*[A-Z])(?=.*[/\d/])/;
@@ -35,7 +35,7 @@ export async function SignUpUser(username: string, password: string) {
   const CheckPassword = regex.test(password);
 
   if (!CheckPassword) {
-    return { error: "A senha deve ter uma letra maiuscula e um numero" };
+    return { error: "A senha deve ter uma letra maiúscula e um numero" };
   }
 
   if (CheckPassword) {

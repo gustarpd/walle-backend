@@ -20,5 +20,5 @@ export const SignUp = async (req: Request, res: Response) => {
     });
   }
 
-  return res.json({ message: newUser?.error });
+  return res.json({  newUser });
 };

@@ -31,12 +31,16 @@ export async function CashOut(
     },
   });
 
+  if(!value) {
+    return { message: 'Digite um valor!' }
+  }
+
   if (Number(value) > Number(debitedAccount?.balance)) {
     return { message: "Valor maior que o saldo" };
   }
 
   if (usercredited?.id === userdebited?.id) {
-    return { message: "Não é possível transferir para si mesmo!" };
+    return { message: 'Você não pode transferir para si mesmo!' };
   }
 
   if (!usercredited?.id) {

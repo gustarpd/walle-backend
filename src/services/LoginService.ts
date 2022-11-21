@@ -10,10 +10,19 @@ export async function FindUser(username: string, password: string) {
     },
   })
 
+  const AccountUserId = await prisma.account.findFirst({
+    where: {
+      userId: user?.id,
+    },
+  })
 
-  const comparePassword = compareSync(password, user?.password as string)
+  if (user?.username == username) {
+    const comparePassword = compareSync(password, user?.password as string)
 
+    return { comparePassword, userId: AccountUserId?.userId }
+  }
 
-  return { comparePassword, user: user?.username }
+  if (user?.username != username) {
+    return { error: 'Usuario não existe' }
+  }
 }
-
