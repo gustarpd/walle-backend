@@ -32,7 +32,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: prisma-postgres-api
+    container_name: ng-backend
     depends_on:
       - postgres
     ports:

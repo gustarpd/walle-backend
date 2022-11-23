@@ -2,25 +2,22 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-interface TypeRequest {
-  id: string
-}
 
-export async function getBalance({ id }: TypeRequest) {
+export async function getBalance(id: string ) {
   const AccountBalance = await prisma.account.findFirst({
     where: {
       userId: id,
     },
   })
 
-  const filter = await prisma.transactions.findMany({
+  const transactions = await prisma.transactions.findMany({
     where: {
-      creditedAccountId: AccountBalance?.userId,
+      debitedAccountId: id
     },
     orderBy: {
-      createdAt: 'desc',
+      createdAt: 'asc'
     },
   })
 
-  return { filter, balance: AccountBalance?.balance }
+  return { transactions, trasactonCashout: AccountBalance?.id, balance: AccountBalance?.balance }
 }

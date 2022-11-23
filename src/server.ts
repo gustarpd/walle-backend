@@ -21,7 +21,7 @@ server.use(cors({
 
 server.use(express.json());
 
-server.get("/ping", Private  ,(req: Request, res: Response) =>
+server.get("/ping"  ,(req: Request, res: Response) =>
   res.json({ ping: "pong" })
 );
 
