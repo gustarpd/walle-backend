@@ -15,7 +15,7 @@ no terminal e ter o docker e docker-compose instalado
 Clone o repositório
 
 ```sh
-https://github.com/gustarpd/condplatform.git
+https://github.com/gustarpd/ng-backend.git
 ```
 no terminal, execute o seguinte comando:
 
