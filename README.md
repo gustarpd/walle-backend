@@ -4,7 +4,7 @@
 
 - Cadastro de usuários
 - Login 
-- Fitro por ordem de data
+- Filtro por ordem de data
 - Envio de dinheiro através do nome do user
 
 ## Installation
