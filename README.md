@@ -6,6 +6,12 @@
 - Login 
 - Filtro por ordem de data
 - Envio de dinheiro através do nome do user
+## techs 
+
+- NodeJs
+- TypeScript 
+- Prisma ORM
+- bycript
 
 ## Installation
 
